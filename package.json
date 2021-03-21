@@ -1,0 +1,21 @@
+{
+  "name": "do-ga",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "puppeteer": "^3.0.2",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.8.3"
+  },
+  "scripts": {
+    "start": "ts-node --require tsconfig-paths/register src/index.ts",
+    "start:dev": "NODE_ENV=develop yarn start"
+  },
+  "devDependencies": {
+    "@types/puppeteer": "^2.0.1",
+    "nodemon": "^2.0.4",
+    "tsconfig-paths": "^3.9.0"
+  }
+}

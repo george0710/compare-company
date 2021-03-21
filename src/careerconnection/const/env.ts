@@ -1,0 +1,1 @@
+export const url = 'https://careerconnection.jp/review/search.html?corpName={0}&reportkind=1';
