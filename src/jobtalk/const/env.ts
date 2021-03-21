@@ -1,0 +1,1 @@
+export const url = 'https://jobtalk.jp/companies/search?keyword={0}&keyword_search_form=1&include_no_answers=1&include_bankrupted=1';
