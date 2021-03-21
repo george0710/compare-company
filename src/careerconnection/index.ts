@@ -1,29 +1,8 @@
+import { getNotFountObj } from "src/common/crawling";
 import { setParams } from "src/common/str";
+import { IScrapedData } from "src/common/crawling";
 import { Puppeteer } from "src/puppeteer"
 import { url } from "./const/env";
-
-type IScrapedData = {
-  // memberNum: string, // 人数
-  keyWord: string,
-  income: string, // 年収
-  responseNum: string, // 回答数
-  evaluation: string, // 総合評価
-  overtime: string, // 残業時間
-  paid: string, // 有給消化率
-  url: string,
-}
-
-const getNotFountObj = (keyWord: string) => (
-  {
-    keyWord,
-    income: '',
-    responseNum: '',
-    evaluation: '',
-    overtime: '',
-    paid: '',
-    url: ''
-  }
-)
 
 export const getCareerConnection = async (puppeteer: Puppeteer, keyWords: string[]):Promise<IScrapedData[]> => {
   const dataList:IScrapedData[] = [];

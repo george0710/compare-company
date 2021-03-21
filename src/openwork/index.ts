@@ -1,16 +1,6 @@
+import { getNotFountObj, IScrapedData } from "src/common/crawling";
 import { Puppeteer } from "src/puppeteer"
 import { url } from "./const/env";
-
-type IScrapedData = {
-  // memberNum: string, // 人数
-  keyWord: string,
-  income: string, // 年収
-  responseNum: string, // 回答数
-  evaluation: string, // 総合評価
-  overtime: string, // 残業時間
-  paid: string, // 有給消化率
-  url: string,
-}
 
 export const getOpenwork = async (puppeteer: Puppeteer, keyWords: string[]):Promise<IScrapedData[]> => {
   const p = await puppeteer.newPage(url);
@@ -31,15 +21,7 @@ export const getOpenwork = async (puppeteer: Puppeteer, keyWords: string[]):Prom
       data.keyWord = keyWord;
       dataList.push(data as IScrapedData);
     } catch (error) {
-      dataList.push({
-        keyWord,
-        income: '',
-        responseNum: '',
-        evaluation: '',
-        overtime: '',
-        paid: '',
-        url: '',
-      });
+      dataList.push(getNotFountObj(keyWord));
     }
   }
   return dataList;
